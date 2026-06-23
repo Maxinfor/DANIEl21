@@ -6,29 +6,35 @@
     <title>Daniel21 - Jornada de Oração</title>
     <style>
         body {
-            margin: 0; padding: 0; font-family: 'Segoe UI', sans-serif;
-            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
-                        url('https://images.unsplash.com/photo-1547721064-da6cfb341d50?q=80&w=1920');
-            background-size: cover; background-position: center; background-attachment: fixed;
-            display: flex; justify-content: center; align-items: center; min-height: 100vh;
+            margin: 0; padding: 20px; 
+            font-family: 'Georgia', serif; /* Fonte clássica de leitura */
+            background-color: #f4f4f9; /* Fundo neutro e limpo */
+            display: flex; justify-content: center; min-height: 100vh;
         }
         #app {
-            width: 90%; max-width: 400px; background: rgba(255, 255, 255, 0.95);
-            padding: 25px; border-radius: 20px; text-align: center; border: 2px solid #d4af37;
+            width: 100%; max-width: 500px; background: #ffffff;
+            padding: 30px; border-radius: 12px; text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1); /* Sombra suave */
         }
-        .header-icon img { width: 120px; height: 120px; border-radius: 50%; border: 3px solid #d4af37; margin-bottom: 15px; }
-        h1 { color: #d4af37; margin-top: 0; }
-        .card { background: #fdf6e3; padding: 20px; border-radius: 15px; margin-top: 20px; border-left: 5px solid #d4af37; }
-        progress { width: 100%; height: 20px; margin-bottom: 10px; }
-        #btnAudio { background: #d4af37; color: white; border: none; padding: 10px 20px; border-radius: 20px; cursor: pointer; margin-top: 20px; font-weight: bold; }
+        .header-icon { font-size: 50px; margin-bottom: 10px; }
+        h1 { color: #2c3e50; font-size: 28px; margin-bottom: 20px; }
+        .card { 
+            background: #ffffff; padding: 20px; border-radius: 8px; 
+            margin-top: 20px; border: 1px solid #ddd; text-align: left;
+        }
+        .card h2 { color: #d4af37; margin-top: 0; }
+        progress { width: 100%; height: 10px; accent-color: #d4af37; }
+        #btnAudio { 
+            background: #2c3e50; color: white; border: none; 
+            padding: 12px 25px; border-radius: 6px; cursor: pointer; 
+            margin-top: 25px; font-weight: bold; width: 100%;
+        }
     </style>
 </head>
 <body>
 
     <div id="app">
-        <div class="header-icon">
-            <img src="https://cdn-icons-png.flaticon.com/512/3237/3237452.png" alt="Bíblia Sagrada">
-        </div>
+        <div class="header-icon">📖</div> <!-- Ícone minimalista -->
         <h1>Daniel21</h1>
         <progress id="progresso-jornada" value="1" max="21"></progress>
         <div id="conteudo-dia"></div>
@@ -64,7 +70,7 @@
         ];
 
         function renderizarConteudo() {
-            const dia = 1; // Ajuste este número para mudar o dia exibido
+            const dia = 1; 
             const c = jornadaDaniel[dia-1];
             document.getElementById('conteudo-dia').innerHTML = `
                 <div class="card">
@@ -72,7 +78,6 @@
                     <p><strong>${c.versiculo}</strong></p>
                     <p>${c.texto}</p>
                 </div>`;
-            document.getElementById('progresso-jornada').value = dia;
         }
 
         function toggleAudio() {
@@ -90,7 +95,7 @@
         window.onload = renderizarConteudo;
     </script>
     
-    <!--Start of Tawk.to Script-->
+    <!-- Tawk.to mantido aqui -->
     <script type="text/javascript">
     var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
     (function(){
@@ -102,7 +107,5 @@
     s0.parentNode.insertBefore(s1,s0);
     })();
     </script>
-    <!--End of Tawk.to Script-->
-
 </body>
 </html>
