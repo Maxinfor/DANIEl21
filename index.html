@@ -1,4 +1,4 @@
-        <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
@@ -17,20 +17,20 @@
             padding: 25px; border-radius: 20px; text-align: center; border: 2px solid #d4af37;
         }
         .header-icon img { width: 120px; height: 120px; border-radius: 50%; border: 3px solid #d4af37; margin-bottom: 15px; }
-        h1 { color: #d4af37; }
+        h1 { color: #d4af37; margin-top: 0; }
         .card { background: #fdf6e3; padding: 20px; border-radius: 15px; margin-top: 20px; border-left: 5px solid #d4af37; }
-        progress { width: 100%; height: 20px; }
-        #btnAudio { background: #d4af37; color: white; border: none; padding: 10px 20px; border-radius: 20px; cursor: pointer; margin-top: 20px; }
+        progress { width: 100%; height: 20px; margin-bottom: 10px; }
+        #btnAudio { background: #d4af37; color: white; border: none; padding: 10px 20px; border-radius: 20px; cursor: pointer; margin-top: 20px; font-weight: bold; }
     </style>
 </head>
 <body>
 
     <div id="app">
         <div class="header-icon">
-            <img src="https://cdn-icons-png.flaticon.com/512/3069/3069176.png" alt="Leão">
+            <img src="https://cdn-icons-png.flaticon.com/512/3237/3237452.png" alt="Bíblia Sagrada">
         </div>
         <h1>Daniel21</h1>
-        <progress id="progresso-jornada" value="0" max="21"></progress>
+        <progress id="progresso-jornada" value="1" max="21"></progress>
         <div id="conteudo-dia"></div>
         <button onclick="toggleAudio()" id="btnAudio">▶ Tocar Som de Oração</button>
         <audio id="audioPlayer" loop>
@@ -40,31 +40,31 @@
 
     <script>
         const jornadaDaniel = [
-            { dia: 1, versiculo: "Daniel 1:8", texto: "Propósito: Decidir não se contaminar." },
-            { dia: 2, versiculo: "Daniel 1:17", texto: "Capacitação: Deus dá sabedoria." },
-            { dia: 3, versiculo: "Daniel 2:18", texto: "Unidade: Buscar a misericórdia." },
-            { dia: 4, versiculo: "Daniel 2:20", texto: "Adoração: Reconhecer a soberania." },
-            { dia: 5, versiculo: "Daniel 2:23", texto: "Gratidão: Agradecer a revelação." },
-            { dia: 6, versiculo: "Daniel 3:17", texto: "Confiança: Deus livra da fornalha." },
-            { dia: 7, versiculo: "Daniel 3:28", texto: "Testemunho: Fidelidade de Deus." },
-            { dia: 8, versiculo: "Daniel 4:34", texto: "Humildade: Reconhecer o Altíssimo." },
-            { dia: 9, versiculo: "Daniel 4:35", texto: "Submissão: Deus faz Sua vontade." },
-            { dia: 10, versiculo: "Daniel 5:12", texto: "Excelência: Espírito superior." },
-            { dia: 11, versiculo: "Daniel 6:10", texto: "Constância: Orar três vezes ao dia." },
-            { dia: 12, versiculo: "Daniel 6:16", texto: "Fidelidade: Servir continuamente." },
-            { dia: 13, versiculo: "Daniel 6:22", texto: "Proteção: Deus envia auxílio." },
-            { dia: 14, versiculo: "Daniel 6:23", texto: "Esperança: Confiar em Deus." },
-            { dia: 15, versiculo: "Daniel 9:3", texto: "Intensidade: Jejum e oração." },
-            { dia: 16, versiculo: "Daniel 9:18", texto: "Dependência: Sua misericórdia." },
-            { dia: 17, versiculo: "Daniel 9:19", texto: "Intercessão: Clamar pelo Seu amor." },
-            { dia: 18, versiculo: "Daniel 10:12", texto: "Perseverança: Ouvidos desde o início." },
-            { dia: 19, versiculo: "Daniel 10:19", texto: "Força: Deus nos fortalece." },
-            { dia: 20, versiculo: "Daniel 12:3", texto: "Influência: Brilhar como o firmamento." },
-            { dia: 21, versiculo: "Daniel 12:13", texto: "Descanso: Fiel até o fim." }
+            { dia: 1, versiculo: "Daniel 1:8", texto: "Propósito: Decidir no coração não se contaminar." },
+            { dia: 2, versiculo: "Daniel 1:17", texto: "Capacitação: Deus dá sabedoria e entendimento." },
+            { dia: 3, versiculo: "Daniel 2:18", texto: "Unidade: Buscar a misericórdia de Deus em comunhão." },
+            { dia: 4, versiculo: "Daniel 2:20", texto: "Adoração: Bendito seja o nome de Deus para todo o sempre." },
+            { dia: 5, versiculo: "Daniel 2:23", texto: "Gratidão: Agradecer a Deus pela revelação e sabedoria." },
+            { dia: 6, versiculo: "Daniel 3:17", texto: "Confiança: Deus é poderoso para nos livrar." },
+            { dia: 7, versiculo: "Daniel 3:28", texto: "Testemunho: O livramento de Deus e a nossa fidelidade." },
+            { dia: 8, versiculo: "Daniel 4:34", texto: "Humildade: Reconhecer a Deus como o Altíssimo." },
+            { dia: 9, versiculo: "Daniel 4:35", texto: "Submissão: Deus faz segundo a Sua vontade no céu e na terra." },
+            { dia: 10, versiculo: "Daniel 5:12", texto: "Excelência: Buscar um espírito superior e conhecimento." },
+            { dia: 11, versiculo: "Daniel 6:10", texto: "Constância: Orar com fidelidade, independentemente das circunstâncias." },
+            { dia: 12, versiculo: "Daniel 6:16", texto: "Fidelidade: Servir a Deus continuamente." },
+            { dia: 13, versiculo: "Daniel 6:22", texto: "Proteção: Deus envia o Seu auxílio em momentos de aflição." },
+            { dia: 14, versiculo: "Daniel 6:23", texto: "Esperança: Confiar que nada mal sucederá aos que confiam em Deus." },
+            { dia: 15, versiculo: "Daniel 9:3", texto: "Intensidade: Buscar a Deus com jejum, oração e súplicas." },
+            { dia: 16, versiculo: "Daniel 9:18", texto: "Dependência: Apoiar-se na grande misericórdia de Deus." },
+            { dia: 17, versiculo: "Daniel 9:19", texto: "Intercessão: Clamar pelo amor e misericórdia de Deus." },
+            { dia: 18, versiculo: "Daniel 10:12", texto: "Perseverança: As palavras de oração são ouvidas desde o primeiro dia." },
+            { dia: 19, versiculo: "Daniel 10:19", texto: "Força: Deus nos fortalece com Sua palavra e presença." },
+            { dia: 20, versiculo: "Daniel 12:3", texto: "Influência: Brilhar como o firmamento e conduzir muitos à justiça." },
+            { dia: 21, versiculo: "Daniel 12:13", texto: "Descanso: Permanecer fiel até o fim da jornada." }
         ];
 
         function renderizarConteudo() {
-            const dia = 1; // Você pode ajustar para ser dinâmico depois
+            const dia = 1; // Ajuste este número para mudar o dia exibido
             const c = jornadaDaniel[dia-1];
             document.getElementById('conteudo-dia').innerHTML = `
                 <div class="card">
@@ -78,8 +78,13 @@
         function toggleAudio() {
             const a = document.getElementById("audioPlayer");
             const b = document.getElementById("btnAudio");
-            a.paused ? a.play() : a.pause();
-            b.innerText = a.paused ? "▶ Tocar Som de Oração" : "⏸ Pausar Som";
+            if (a.paused) {
+                a.play();
+                b.innerText = "⏸ Pausar Som";
+            } else {
+                a.pause();
+                b.innerText = "▶ Tocar Som de Oração";
+            }
         }
 
         window.onload = renderizarConteudo;
