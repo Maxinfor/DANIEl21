@@ -4,96 +4,92 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Daniel21 - Jornada de Oração</title>
-    <link rel="stylesheet" href="style.css">
-/* Configuração Geral */
-body {
-    margin: 0;
-    padding: 0;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: linear-gradient(135deg, #2c3e50 0%, #000000 100%);
-    background-attachment: fixed;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    color: #333;
-}
-
-/* O "App" no celular */
-#app {
-    width: 90%;
-    max-width: 400px;
-    background: rgba(255, 255, 255, 0.95);
-    padding: 25px;
-    border-radius: 20px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.5);
-    text-align: center;
-    border: 2px solid #d4af37;
-}
-
-/* Imagem de Topo */
-.header-icon img {
-    width: 120px;
-    height: 120px;
-    border-radius: 50%;
-    border: 3px solid #d4af37;
-    margin-bottom: 15px;
-    object-fit: cover;
-}
-
-/* Títulos e Textos */
-h1 {
-    color: #d4af37;
-    font-size: 24px;
-    margin-bottom: 10px;
-}
-
-.card {
-    background: #fdf6e3;
-    padding: 20px;
-    border-radius: 15px;
-    margin-top: 20px;
-    border-left: 5px solid #d4af37;
-}
-
-/* Botão de Som */
-#btnAudio {
-    background: #d4af37;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 20px;
-    cursor: pointer;
-    font-weight: bold;
-    margin-top: 20px;
-}
-
-/* Barra de Progresso */
-progress {
-    width: 100%;
-    height: 20px;
-    margin: 10px 0;
-}
-
+    <style>
+        body {
+            margin: 0; padding: 0; font-family: 'Segoe UI', sans-serif;
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
+                        url('https://images.unsplash.com/photo-1547721064-da6cfb341d50?q=80&w=1920');
+            background-size: cover; background-position: center; background-attachment: fixed;
+            display: flex; justify-content: center; align-items: center; min-height: 100vh;
+        }
+        #app {
+            width: 90%; max-width: 400px; background: rgba(255, 255, 255, 0.95);
+            padding: 25px; border-radius: 20px; text-align: center; border: 2px solid #d4af37;
+        }
+        .header-icon img { width: 120px; height: 120px; border-radius: 50%; border: 3px solid #d4af37; margin-bottom: 15px; }
+        h1 { color: #d4af37; }
+        .card { background: #fdf6e3; padding: 20px; border-radius: 15px; margin-top: 20px; border-left: 5px solid #d4af37; }
+        progress { width: 100%; height: 20px; }
+        #btnAudio { background: #d4af37; color: white; border: none; padding: 10px 20px; border-radius: 20px; cursor: pointer; margin-top: 20px; }
+    </style>
 </head>
 <body>
+
     <div id="app">
         <div class="header-icon">
-            <img src="https://via.placeholder.com/120" alt="Daniel">
+            <img src="https://cdn-icons-png.flaticon.com/512/3069/3069176.png" alt="Leão">
         </div>
         <h1>Daniel21</h1>
         <progress id="progresso-jornada" value="0" max="21"></progress>
         <div id="conteudo-dia"></div>
-        
-        <div class="audio-control">
-            <button onclick="toggleAudio()" id="btnAudio">▶ Tocar Som</button>
-            <audio id="audioPlayer" loop>
-                <source src="sua-musica.mp3" type="audio/mpeg">
-            </audio>
-        </div>
+        <button onclick="toggleAudio()" id="btnAudio">▶ Tocar Som de Oração</button>
+        <audio id="audioPlayer" loop>
+            <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+        </audio>
     </div>
 
-    <script src="script.js"></script>
-    <!-- Cole o seu código do Tawk.to aqui abaixo -->
+    <script>
+        const jornadaDaniel = [
+            { dia: 1, versiculo: "Daniel 1:8", texto: "Propósito: Decidir não se contaminar." },
+            { dia: 2, versiculo: "Daniel 1:17", texto: "Capacitação: Deus dá sabedoria." },
+            { dia: 3, versiculo: "Daniel 2:18", texto: "Unidade: Buscar a misericórdia." },
+            { dia: 4, versiculo: "Daniel 2:20", texto: "Adoração: Reconhecer a soberania." },
+            { dia: 5, versiculo: "Daniel 2:23", texto: "Gratidão: Agradecer a revelação." },
+            { dia: 6, versiculo: "Daniel 3:17", texto: "Confiança: Deus livra da fornalha." },
+            { dia: 7, versiculo: "Daniel 3:28", texto: "Testemunho: Fidelidade de Deus." },
+            { dia: 8, versiculo: "Daniel 4:34", texto: "Humildade: Reconhecer o Altíssimo." },
+            { dia: 9, versiculo: "Daniel 4:35", texto: "Submissão: Deus faz Sua vontade." },
+            { dia: 10, versiculo: "Daniel 5:12", texto: "Excelência: Espírito superior." },
+            { dia: 11, versiculo: "Daniel 6:10", texto: "Constância: Orar três vezes ao dia." },
+            { dia: 12, versiculo: "Daniel 6:16", texto: "Fidelidade: Servir continuamente." },
+            { dia: 13, versiculo: "Daniel 6:22", texto: "Proteção: Deus envia auxílio." },
+            { dia: 14, versiculo: "Daniel 6:23", texto: "Esperança: Confiar em Deus." },
+            { dia: 15, versiculo: "Daniel 9:3", texto: "Intensidade: Jejum e oração." },
+            { dia: 16, versiculo: "Daniel 9:18", texto: "Dependência: Sua misericórdia." },
+            { dia: 17, versiculo: "Daniel 9:19", texto: "Intercessão: Clamar pelo Seu amor." },
+            { dia: 18, versiculo: "Daniel 10:12", texto: "Perseverança: Ouvidos desde o início." },
+            { dia: 19, versiculo: "Daniel 10:19", texto: "Força: Deus nos fortalece." },
+            { dia: 20, versiculo: "Daniel 12:3", texto: "Influência: Brilhar como o firmamento." },
+            { dia: 21, versiculo: "Daniel 12:13", texto: "Descanso: Fiel até o fim." }
+        ];
+
+        function getDiaAtual() {
+            // Ajustado para começar a contar desde hoje
+            return 1; 
+        }
+
+        function renderizarConteudo() {
+            const dia = getDiaAtual();
+            const c = jornadaDaniel[dia-1];
+            document.getElementById('conteudo-dia').innerHTML = `
+                <div class="card">
+                    <h2>Dia ${c.dia}</h2>
+                    <p><strong>${c.versiculo}</strong></p>
+                    <p>${c.texto}</p>
+                </div>`;
+            document.getElementById('progresso-jornada').value = dia;
+        }
+
+        function toggleAudio() {
+            const a = document.getElementById("audioPlayer");
+            const b = document.getElementById("btnAudio");
+            a.paused ? a.play() : a.pause();
+            b.innerText = a.paused ? "▶ Tocar Som de Oração" : "⏸ Pausar Som";
+        }
+
+        window.onload = renderizarConteudo;
+    </script>
+    
+    <!-- Cole aqui seu código do Tawk.to -->
 </body>
 </html>
