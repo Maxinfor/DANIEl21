@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daniel21 - Jornada de Oração</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="app">
+        <div class="header-icon">
+            <img src="https://via.placeholder.com/120" alt="Daniel">
+        </div>
+        <h1>Daniel21</h1>
+        <progress id="progresso-jornada" value="0" max="21"></progress>
+        <div id="conteudo-dia"></div>
+        
+        <div class="audio-control">
+            <button onclick="toggleAudio()" id="btnAudio">▶ Tocar Som</button>
+            <audio id="audioPlayer" loop>
+                <source src="sua-musica.mp3" type="audio/mpeg">
+            </audio>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <!-- Cole o seu código do Tawk.to aqui abaixo -->
+</body>
+</html>
