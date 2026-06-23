@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+        <!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
@@ -63,13 +63,8 @@
             { dia: 21, versiculo: "Daniel 12:13", texto: "Descanso: Fiel até o fim." }
         ];
 
-        function getDiaAtual() {
-            // Ajustado para começar a contar desde hoje
-            return 1; 
-        }
-
         function renderizarConteudo() {
-            const dia = getDiaAtual();
+            const dia = 1; // Você pode ajustar para ser dinâmico depois
             const c = jornadaDaniel[dia-1];
             document.getElementById('conteudo-dia').innerHTML = `
                 <div class="card">
@@ -90,6 +85,19 @@
         window.onload = renderizarConteudo;
     </script>
     
-    <!-- Cole aqui seu código do Tawk.to -->
+    <!--Start of Tawk.to Script-->
+    <script type="text/javascript">
+    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+    (function(){
+    var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+    s1.async=true;
+    s1.src='https://embed.tawk.to/6a39ff706400ca1d49c21ade/1jrp8rjt6';
+    s1.charset='UTF-8';
+    s1.setAttribute('crossorigin','*');
+    s0.parentNode.insertBefore(s1,s0);
+    })();
+    </script>
+    <!--End of Tawk.to Script-->
+
 </body>
 </html>
