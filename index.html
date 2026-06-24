@@ -2,119 +2,73 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Daniel21 - Jornada de Oração</title>
+    <title>Francês Básico - Aula 1</title>
     <style>
-        body {
-            margin: 0; padding: 20px; 
-            font-family: 'Georgia', serif;
-            background-color: #f4f4f9;
-            display: flex; justify-content: center; min-height: 100vh;
-        }
-        #app {
-            width: 100%; max-width: 500px; background: #ffffff;
-            padding: 30px; border-radius: 12px; text-align: center;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-        }
-        .header-icon { font-size: 50px; margin-bottom: 10px; }
-        h1 { color: #2c3e50; font-size: 28px; margin-bottom: 20px; }
-        .card { 
-            background: #ffffff; padding: 20px; border-radius: 8px; 
-            margin-top: 20px; border: 1px solid #ddd; text-align: left;
-        }
-        .card h2 { color: #d4af37; margin-top: 0; }
-        progress { width: 100%; height: 10px; accent-color: #d4af37; margin-top: 10px; }
-        #btnAudio { 
-            background: #2c3e50; color: white; border: none; 
-            padding: 12px 25px; border-radius: 6px; cursor: pointer; 
-            margin-top: 25px; font-weight: bold; width: 100%;
-        }
+        body { font-family: 'Segoe UI', sans-serif; display: flex; margin: 0; background-color: #f4f4f9; }
+        .sidebar { width: 250px; background: #2c3e50; color: white; height: 100vh; padding: 20px; box-sizing: border-box; }
+        .content { flex-grow: 1; padding: 40px; }
+        .progress-bar { background: #34495e; height: 10px; border-radius: 5px; margin: 10px 0; overflow: hidden; }
+        #progress-fill { background: #2ecc71; height: 100%; width: 12.5%; transition: width 0.5s; }
+        button { background: #3498db; color: white; border: none; padding: 10px 20px; cursor: pointer; border-radius: 5px; }
+        .audio-btn { background: #27ae60; padding: 5px 10px; font-size: 0.8em; margin-left: 10px; border-radius: 3px; border: none; color: white; cursor: pointer; }
+        li { margin-bottom: 10px; padding: 12px; background: white; border-radius: 5px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); display: flex; align-items: center; justify-content: space-between; }
+        ul { list-style: none; padding: 0; }
     </style>
 </head>
 <body>
 
-    <div id="app">
-        <div class="header-icon">📖</div>
-        <h1>Daniel21</h1>
-        <progress id="progresso-jornada" value="1" max="21"></progress>
-        <div id="conteudo-dia"></div>
-        <button onclick="toggleAudio()" id="btnAudio">▶ Tocar Som de Oração</button>
-        <audio id="audioPlayer" loop>
-            <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
-        </audio>
-    </div>
+    <nav class="sidebar">
+        <h2>Francês Básico</h2>
+        <div class="progress-bar"><div id="progress-fill"></div></div>
+        <ul>
+            <li><a href="#" style="color:white; text-decoration:none;" onclick="carregarAula(1)">Aula 1: Présentation</a></li>
+        </ul>
+    </nav>
+
+    <main class="content" id="conteudo-aula">
+        <h1>Bem-vindo</h1>
+        <p>Selecione a aula no menu lateral.</p>
+    </main>
 
     <script>
-        // Data de início fixada em 23/06/2026
-        const dataInicio = new Date('2026-06-23T00:00:00'); 
-
-        const jornadaDaniel = [
-            { dia: 1, versiculo: "Daniel 1:8", texto: "Propósito: Decidir no coração não se contaminar." },
-            { dia: 2, versiculo: "Daniel 1:17", texto: "Capacitação: Deus dá sabedoria e entendimento." },
-            { dia: 3, versiculo: "Daniel 2:18", texto: "Unidade: Buscar a misericórdia de Deus em comunhão." },
-            { dia: 4, versiculo: "Daniel 2:20", texto: "Adoração: Bendito seja o nome de Deus para todo o sempre." },
-            { dia: 5, versiculo: "Daniel 2:23", texto: "Gratidão: Agradecer a Deus pela revelação e sabedoria." },
-            { dia: 6, versiculo: "Daniel 3:17", texto: "Confiança: Deus é poderoso para nos livrar." },
-            { dia: 7, versiculo: "Daniel 3:28", texto: "Testemunho: O livramento de Deus e a nossa fidelidade." },
-            { dia: 8, versiculo: "Daniel 4:34", texto: "Humildade: Reconhecer a Deus como o Altíssimo." },
-            { dia: 9, versiculo: "Daniel 4:35", texto: "Submissão: Deus faz segundo a Sua vontade no céu e na terra." },
-            { dia: 10, versiculo: "Daniel 5:12", texto: "Excelência: Buscar um espírito superior e conhecimento." },
-            { dia: 11, versiculo: "Daniel 6:10", texto: "Constância: Orar com fidelidade, independentemente das circunstâncias." },
-            { dia: 12, versiculo: "Daniel 6:16", texto: "Fidelidade: Servir a Deus continuamente." },
-            { dia: 13, versiculo: "Daniel 6:22", texto: "Proteção: Deus envia o Seu auxílio em momentos de aflição." },
-            { dia: 14, versiculo: "Daniel 6:23", texto: "Esperança: Confiar que nada mal sucederá aos que confiam em Deus." },
-            { dia: 15, versiculo: "Daniel 9:3", texto: "Intensidade: Buscar a Deus com jejum, oração e súplicas." },
-            { dia: 16, versiculo: "Daniel 9:18", texto: "Dependência: Apoiar-se na grande misericórdia de Deus." },
-            { dia: 17, versiculo: "Daniel 9:19", texto: "Intercessão: Clamar pelo amor e misericórdia de Deus." },
-            { dia: 18, versiculo: "Daniel 10:12", texto: "Perseverança: As palavras de oração são ouvidas desde o primeiro dia." },
-            { dia: 19, versiculo: "Daniel 10:19", texto: "Força: Deus nos fortalece com Sua palavra e presença." },
-            { dia: 20, versiculo: "Daniel 12:3", texto: "Influência: Brilhar como o firmamento e conduzir muitos à justiça." },
-            { dia: 21, versiculo: "Daniel 12:13", texto: "Descanso: Fiel até o fim da jornada." }
-        ];
-
-        function renderizarConteudo() {
-            const hoje = new Date();
-            const diferencaTempo = hoje - dataInicio;
-            const diaAtual = Math.floor(diferencaTempo / (1000 * 60 * 60 * 24)) + 1;
-            const diaExibido = Math.min(Math.max(diaAtual, 1), 21);
-            
-            const c = jornadaDaniel[diaExibido - 1];
-            
-            document.getElementById('conteudo-dia').innerHTML = `
-                <div class="card">
-                    <p style="text-align:center; color:#d4af37; font-weight:bold;">Dia ${diaExibido} de 21</p>
-                    <h2 style="font-size: 1.2em; margin: 10px 0;">${c.versiculo}</h2>
-                    <p>${c.texto}</p>
-                </div>`;
-            document.getElementById('progresso-jornada').value = diaExibido;
-        }
-
-        function toggleAudio() {
-            const a = document.getElementById("audioPlayer");
-            const b = document.getElementById("btnAudio");
-            if (a.paused) {
-                a.play();
-                b.innerText = "⏸ Pausar Som";
-            } else {
-                a.pause();
-                b.innerText = "▶ Tocar Som de Oração";
+        const lecons = {
+            1: {
+                titulo: "Aula 1: Présentation",
+                cumprimentos: [
+                    { texto: "Bonjour", arquivo: "luvvoice.com-20260624-9tt6et.mp3" },
+                    { texto: "Salut", arquivo: "luvvoice.com-20260624-z07cjN.mp3" },
+                    { texto: "Bonsoir", arquivo: "luvvoice.com-20260624-35QxrB.mp3" }
+                ],
+                gramatica: [
+                    { texto: "Je suis", arquivo: "luvvoice.com-20260624-BA9ITr.mp3" },
+                    { texto: "Tu es", arquivo: "luvvoice.com-20260624-3a71zm.mp3" },
+                    { texto: "Il/Elle est", arquivo: "luvvoice.com-20260624-EBqaSL.mp3" },
+                    { texto: "Nous sommes", arquivo: "luvvoice.com-20260624-iFopdb.mp3" },
+                    { texto: "Vous êtes", arquivo: "luvvoice.com-20260624-38Ehwc.mp3" },
+                    { texto: "Ils/Elles sont", arquivo: "luvvoice.com-20260624-64ALna.mp3" }
+                ]
             }
+        };
+
+        function tocarAudio(arquivo) {
+            new Audio(arquivo).play();
         }
 
-        window.onload = renderizarConteudo;
-    </script>
-    
-    <!-- Tawk.to Script -->
-    <script type="text/javascript">
-    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
-    (function(){
-    var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
-    s1.async=true;
-    s1.src='https://embed.tawk.to/6a39ff706400ca1d49c21ade/1jrp8rjt6';
-    s1.charset='UTF-8';
-    s1.setAttribute('crossorigin','*');
-    s0.parentNode.insertBefore(s1,s0);
-    })();
+        function carregarAula(num) {
+            const aula = lecons[num];
+            let html = `<h1>${aula.titulo}</h1><h3>1. Comunicação</h3><ul>`;
+            aula.cumprimentos.forEach(item => {
+                html += `<li>${item.texto} <button class="audio-btn" onclick="tocarAudio('${item.arquivo}')">▶ Ouvir</button></li>`;
+            });
+            html += `</ul><h3>2. Gramática: Verbo Être</h3><ul>`;
+            aula.gramatica.forEach(item => {
+                html += `<li>${item.texto} <button class="audio-btn" onclick="tocarAudio('${item.arquivo}')">▶ Ouvir</button></li>`;
+            });
+            html += `</ul>`;
+            document.getElementById('conteudo-aula').innerHTML = html;
+        }
+
+        window.onload = () => carregarAula(1);
     </script>
 </body>
 </html>
